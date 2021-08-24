@@ -11,6 +11,9 @@ import api
 from string import Template
 from pathlib import Path
 
+import urllib3
+urllib3.disable_warnings()
+
 import logging
 logging.basicConfig(format='%(asctime)s %(message)s',
                     datefmt='%d.%m.%y %H:%M:%S', level=logging.INFO)

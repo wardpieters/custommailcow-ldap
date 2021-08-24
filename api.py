@@ -8,7 +8,7 @@ def __post_request(url, json_data):
     api_url = f"{api_host}/{url}"
     headers = {'X-API-Key': api_key, 'Content-type': 'application/json'}
 
-    req = requests.post(api_url, headers=headers, json=json_data)
+    req = requests.post(api_url, headers=headers, json=json_data, verify=False)
     req.close()
 
     try:
@@ -91,7 +91,7 @@ def __delete_user(email):
 def check_user(email):
     url = f"{api_host}/api/v1/get/mailbox/{email}"
     headers = {'X-API-Key': api_key, 'Content-type': 'application/json'}
-    req = requests.get(url, headers=headers)
+    req = requests.get(url, headers=headers, verify=False)
     req.close()
 
     try:
