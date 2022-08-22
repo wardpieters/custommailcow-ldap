@@ -70,7 +70,7 @@ def add_user(email, name, active, quotum):
 def edit_user(email, active=None, name=None):
     attr = {}
     if (active is not None):
-        attr['active'] = 1 if active else 0
+        attr['active'] = 1 if active else 2
     if (name is not None):
         attr['name'] = name
 
@@ -80,12 +80,6 @@ def edit_user(email, active=None, name=None):
     }
 
     __post_request('api/v1/edit/mailbox', json_data)
-
-
-def __delete_user(email):
-    json_data = [email]
-
-    __post_request('api/v1/delete/mailbox', json_data)
 
 
 def check_user(email):
