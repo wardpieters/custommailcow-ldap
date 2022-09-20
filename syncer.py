@@ -1,3 +1,4 @@
+import logging
 import sys
 import os
 import string
@@ -14,7 +15,6 @@ from pathlib import Path
 import urllib3
 urllib3.disable_warnings()
 
-import logging
 logging.basicConfig(format='%(asctime)s %(message)s',
                     datefmt='%d.%m.%y %H:%M:%S', level=logging.INFO)
 
@@ -204,7 +204,9 @@ def read_dovecot_passdb_conf_template():
 
     return data.substitute(
         ldap_uri=config['LDAP_URI'],
-        ldap_base_dn=config['LDAP_BASE_DN']
+        ldap_base_dn=config['LDAP_BASE_DN'],
+        ldap_bind_dn=config['LDAP_BIND_DN'],
+        ldap_bind_dn_password=config['LDAP_BIND_DN_PASSWORD']
     )
 
 
